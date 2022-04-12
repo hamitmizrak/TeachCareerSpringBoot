@@ -1,0 +1,56 @@
+<!doctype html>
+<html th:lang="${#locale.language}" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS v5.0.2 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
+
+    <!-- external css-->
+    <!--    <link rel="stylesheet"   th:href="@{/css/index.css}">-->
+
+    <!--external js-->
+    <!--    <script th:src="@{/js/index.js}"></script>-->
+
+</head>
+
+<body>
+<!-- start codes -->
+
+
+<table class="table table-striped table-hover">
+
+    <thead>
+    <tr>
+        <th th:text="#{productId}"></th>
+        <th th:text="#{productName}"></th>
+        <th th:text="#{productTrade}"></th>
+        <th th:text="#{productPrice}"></th>
+        <th th:text="#{productInformation}"></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="key_list:${key_list}">
+        <td th:text="${key_list.productId}"></td>
+        <td th:text="${key_list.productName}"></td>
+        <td th:text="${key_list.productTrade}"></td>
+        <td th:text="${key_list.productPrice}"></td>
+        <td th:if="${key_list.productPrice>=4000}" th:text="Büyüktür"></td>
+        <td th:unless="${key_list.productPrice>=4000}" th:text="Küçüktür"></td>
+    </tr>
+    </tbody>
+    <tfoot></tfoot>
+    
+    
+</table>
+
+
+<!-- ends codes -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
+</body>
+</html>

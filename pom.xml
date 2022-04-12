@@ -161,7 +161,6 @@
 
     <build>
         <plugins>
-
             <!-- for maven -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class BeanDtoController {
 
     @Autowired
-    BeanConfig beanConfig;
+   private  BeanConfig beanConfig;
 
     //http://localhost:8080/bean/baandto
     @GetMapping("/bean/baandto")

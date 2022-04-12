@@ -8,8 +8,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class ControllerTutorials {
 
-
-
+    //Root
     //http://localhost:8080/
     @GetMapping("/")
     @ResponseBody

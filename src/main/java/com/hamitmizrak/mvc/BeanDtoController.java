@@ -12,8 +12,8 @@ public class BeanDtoController {
     @Autowired
    private  BeanConfig beanConfig;
 
-    //http://localhost:8080/bean/baandto
-    @GetMapping("/bean/baandto")
+    //http://localhost:8080/bean/beandto
+    @GetMapping("/bean/beandto")
     @ResponseBody
     public String getBeanDto() {
         return beanConfig.beanDto()+" ";

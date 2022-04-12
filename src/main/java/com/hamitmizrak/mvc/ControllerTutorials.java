@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class ControllerTutorials {
 
 
+
     //http://localhost:8080/
     @GetMapping("/")
     @ResponseBody

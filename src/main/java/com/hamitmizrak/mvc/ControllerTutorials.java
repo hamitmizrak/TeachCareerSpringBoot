@@ -111,13 +111,25 @@ public class ControllerTutorials {
     }
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////
-     //RequestParam
+     //RequestParam (1 attributes)
     // http://localhost:8080/templates/thymeleaf8?adi=Hamit
     @GetMapping("templates/thymeleaf8")
-    public String getRequestParam(Model model, @RequestParam(name = "adi") String name) {
-
+    public String getRequestParamOne(Model model, @RequestParam(name = "adi") String name) {
         model.addAttribute("key", "RequestParam: " + name);
         return "_08_requestparam";
+    }
+
+
+    //RequestParam (2 attributes)
+    // http://localhost:8080/templates/thymeleaf9?name=Hamit&surname=Mizrak
+    @GetMapping("templates/thymeleaf9")
+    public String getRequestParamTwo(
+            Model model,
+            @RequestParam(name="name") String name,
+            @RequestParam(name="surname") String surname
+            ){
+        model.addAttribute("key","adı: "+name+" soyadı: "+surname);
+        return "_09_requestparamtwo";
     }
 
 }

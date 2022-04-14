@@ -1,0 +1,94 @@
+<!doctype html>
+<html th:lang="${#locale.language}" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS v5.0.2 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
+    <!--    <link rel="stylesheet"   th:href="@{/css/index.css}">-->
+    <!--    <script th:src="@{/js/index.js}"></script>-->
+</head>
+
+<body class="container bg-dark text-danger">
+<!-- start codes -->
+
+<!--<p th:text="${key_validation}"></p>-->
+
+<p th:text="#{form}" class="display-4 text-center text-primary text-capitalize"></p>
+
+<form  th:method="post" th:object="${key_validation}" th:action="@{/validation}">
+    <div class="container">
+        <div class="row">
+
+            <div th:text="#{id}" class="col-md-2"></div>
+            <div class="col-md-10">
+                <input class="form-control" type="text" id="registerId" disabled="disabled" th:field="*{registerId}"/> <br/>
+            </div>
+
+            <div th:text="#{userName}" class="col-md-2"></div>
+            <div class="col-md-10">
+                <input class="form-control" type="text" id="registerNameSurname"  th:field="*{registerNameSurname}"/> <br/>
+                <div th:if="${#fields.hasErrors('registerNameSurname')}" th:errors="*{registerNameSurname}" />
+            </div>
+
+
+            <div th:text="#{emailAddress}" class="col-md-2"></div>
+            <div class="col-md-10">
+                <input class="form-control" type="text" id="registerEmailAddress"  th:field="*{registerEmailAddress}"/> <br/>
+                <div th:if="${#fields.hasErrors('registerEmailAddress')}" th:errors="*{registerEmailAddress}" />
+            </div>
+
+
+            <div th:text="#{userAge}" class="col-md-2"></div>
+            <div class="col-md-10">
+                <input class="form-control" type="text" id="registerAge"  th:field="*{registerAge}"/> <br/>
+                <div th:if="${#fields.hasErrors('registerAge')}" th:errors="*{registerAge}" />
+            </div>
+
+
+            <div th:text="#{userPhone}" class="col-md-2"></div>
+            <div class="col-md-10">
+                <input class="form-control" type="text" id="registerPhone"  th:field="*{registerPhone}"/> <br/>
+                <div th:if="${#fields.hasErrors('registerPhone')}" th:errors="*{registerPhone}" />
+            </div>
+
+
+
+            <div th:text="#{userMessage}" class="col-md-2"></div>
+            <div class="col-md-10">
+                <input class="form-control" type="text" id="registerMessages"  th:field="*{registerMessages}"/> <br/>
+                <div th:if="${#fields.hasErrors('registerMessages')}" th:errors="*{registerMessages}" />
+            </div>
+
+            <div th:text="#{date}" class="col-md-2"></div>
+            <div class="col-md-10">
+                <input class="form-control" type="text" id="creationDate"  th:field="*{creationDate}"/> <br/>
+            </div>
+
+            <div  class="col-md-2"></div>
+            <div class="col-md-10">
+                <button type="reset" class="btn btn-danger">Temizle</button>
+                <button type="submit" class="btn btn-primary">Gönder</button>
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+
+
+     <br/>
+
+    <button th:text="#{submit}" class="btn btn-primary"></button>
+</form>
+
+
+<!-- ends codes -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
+</body>
+</html>

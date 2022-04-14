@@ -83,12 +83,25 @@ public class ControllerTutorials {
     }
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////
-    //pathVariable
+    //pathVariable id'li
     // http://localhost:8080/templates/thymeleaf6/44
     @GetMapping("templates/thymeleaf6/{id}")
     public String getPathVariable(Model model, @PathVariable(name="id") int id){
         model.addAttribute("key","id: "+id);
         return "_06_pathvariable";
+    }
+
+    //pathVariable id'li id'siz
+    // http://localhost:8080/templates/thymeleaf7/
+    // http://localhost:8080/templates/thymeleaf7/11
+    @GetMapping({"templates/thymeleaf7/","templates/thymeleaf7/{id}"})
+    public String getPathVariableNonRequired(Model model,@PathVariable(name="id",required = false) Long id){
+        if(id!=null){
+            model.addAttribute("key","id: "+id);
+        }else{
+            model.addAttribute("key","aradığınız ürün bulunamadı: ");
+        }
+        return "_07_pathvariablenon";
     }
 
 

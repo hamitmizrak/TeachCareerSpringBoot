@@ -13,9 +13,6 @@
 
 <body class="container bg-dark text-danger">
 <!-- start codes -->
-
-<!--<p th:text="${key_validation}"></p>-->
-
 <p th:text="#{form}" class="display-4 text-center text-primary text-capitalize"></p>
 
 <form  th:method="post" th:object="${key_validation}" th:action="@{/validation}">
@@ -33,13 +30,11 @@
                 <div th:if="${#fields.hasErrors('registerNameSurname')}" th:errors="*{registerNameSurname}" />
             </div>
 
-
             <div th:text="#{emailAddress}" class="col-md-2"></div>
             <div class="col-md-10">
                 <input class="form-control" type="text" id="registerEmailAddress"  th:field="*{registerEmailAddress}"/> <br/>
                 <div th:if="${#fields.hasErrors('registerEmailAddress')}" th:errors="*{registerEmailAddress}" />
             </div>
-
 
             <div th:text="#{userAge}" class="col-md-2"></div>
             <div class="col-md-10">
@@ -47,14 +42,11 @@
                 <div th:if="${#fields.hasErrors('registerAge')}" th:errors="*{registerAge}" />
             </div>
 
-
             <div th:text="#{userPhone}" class="col-md-2"></div>
             <div class="col-md-10">
                 <input class="form-control" type="text" id="registerPhone"  th:field="*{registerPhone}"/> <br/>
                 <div th:if="${#fields.hasErrors('registerPhone')}" th:errors="*{registerPhone}" />
             </div>
-
-
 
             <div th:text="#{userMessage}" class="col-md-2"></div>
             <div class="col-md-10">
@@ -75,15 +67,6 @@
 
         </div>
     </div>
-
-
-
-
-
-
-     <br/>
-
-    <button th:text="#{submit}" class="btn btn-primary"></button>
 </form>
 
 

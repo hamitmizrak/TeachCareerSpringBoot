@@ -18,11 +18,10 @@ import java.util.Locale;
 @Builder
 @Log4j2
 
+//validation anonation: @NotEmpty, @Size,@Min,Max,@Pattern,@Email
 public class RegisterValidationDto {
-    private int registerId;
 
-    //şifre:root
-    //email:root@root
+    private int registerId;
 
     @NotEmpty(message = "kullanıcı adı ve soyadını boş geçemezsiniz")
     private String registerNameSurname;

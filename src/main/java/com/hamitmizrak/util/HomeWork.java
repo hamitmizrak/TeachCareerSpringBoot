@@ -7,4 +7,6 @@ public class HomeWork {
     //@GetMapping @PostMapping Form
 
     //validation Login/register
+    //şifre:root
+    //email:root@root
 }

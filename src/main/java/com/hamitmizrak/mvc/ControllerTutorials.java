@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.ArrayList;
@@ -28,6 +29,8 @@ public class ControllerTutorials {
     public String getRoot() {
         return "index";
     }
+
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //th:text
     // http://localhost:8080/templates/thymeleaf1
@@ -53,6 +56,8 @@ public class ControllerTutorials {
         return "_03_css_js";
     }
 
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////
+
     //Object
     // http://localhost:8080/templates/thymeleaf4
     @GetMapping("templates/thymeleaf4")
@@ -73,37 +78,46 @@ public class ControllerTutorials {
     // http://localhost:8080/templates/thymeleaf5
     @GetMapping("templates/thymeleaf5")
     public String getThymleaf5List(Model model) {
-        List<ProductDto> productDtoList=new ArrayList<>();
-        productDtoList.add(new ProductDto(1L,"Name1",2000,"marka1"));
-        productDtoList.add(new ProductDto(2L,"Name2",3000,"marka2"));
-        productDtoList.add(new ProductDto(3L,"Name3",4000,"marka3"));
-        productDtoList.add(new ProductDto(4L,"Name4",5000,"marka4"));
-        model.addAttribute("key_list",productDtoList);
+        List<ProductDto> productDtoList = new ArrayList<>();
+        productDtoList.add(new ProductDto(1L, "Name1", 2000, "marka1"));
+        productDtoList.add(new ProductDto(2L, "Name2", 3000, "marka2"));
+        productDtoList.add(new ProductDto(3L, "Name3", 4000, "marka3"));
+        productDtoList.add(new ProductDto(4L, "Name4", 5000, "marka4"));
+        model.addAttribute("key_list", productDtoList);
         return "_05_object_list";
     }
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////
+
     //pathVariable id'li
     // http://localhost:8080/templates/thymeleaf6/44
     @GetMapping("templates/thymeleaf6/{id}")
-    public String getPathVariable(Model model, @PathVariable(name="id") int id){
-        model.addAttribute("key","id: "+id);
+    public String getPathVariable(Model model, @PathVariable(name = "id") int id) {
+        model.addAttribute("key", "id: " + id);
         return "_06_pathvariable";
     }
 
     //pathVariable id'li id'siz
     // http://localhost:8080/templates/thymeleaf7/
     // http://localhost:8080/templates/thymeleaf7/11
-    @GetMapping({"templates/thymeleaf7/","templates/thymeleaf7/{id}"})
-    public String getPathVariableNonRequired(Model model,@PathVariable(name="id",required = false) Long id){
-        if(id!=null){
-            model.addAttribute("key","id: "+id);
-        }else{
-            model.addAttribute("key","aradığınız ürün bulunamadı: ");
+    @GetMapping({"templates/thymeleaf7/", "templates/thymeleaf7/{id}"})
+    public String getPathVariableNonRequired(Model model, @PathVariable(name = "id", required = false) Long id) {
+        if (id != null) {
+            model.addAttribute("key", "id: " + id);
+        } else {
+            model.addAttribute("key", "aradığınız ürün bulunamadı: ");
         }
         return "_07_pathvariablenon";
     }
 
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////
+     //RequestParam
+    // http://localhost:8080/templates/thymeleaf8?adi=Hamit
+    @GetMapping("templates/thymeleaf8")
+    public String getRequestParam(Model model, @RequestParam(name = "adi") String name) {
 
+        model.addAttribute("key", "RequestParam: " + name);
+        return "_08_requestparam";
+    }
 
 }

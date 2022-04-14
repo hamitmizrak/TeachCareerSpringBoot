@@ -12,6 +12,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Log4j2
 public class FormData {
 
+    //ortak özellikleri:
+    //url
+    //Model
+
     //http://localhost:8080/form
     //http://localhost:8080/form/1
     @GetMapping({"form"} )

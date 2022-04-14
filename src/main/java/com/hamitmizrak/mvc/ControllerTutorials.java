@@ -132,4 +132,15 @@ public class ControllerTutorials {
         return "_09_requestparamtwo";
     }
 
+    //RequestParam /required=false)
+    // http://localhost:8080/templates/thymeleaf10
+    // http://localhost:8080/templates/thymeleaf10?adi=Hamit
+    @GetMapping("templates/thymeleaf10")
+    public String getRequestParamRequired(
+            Model model,
+            @RequestParam(name="adi",required = false,defaultValue="adı girilmedi") String value){
+      model.addAttribute("key","adı: "+value);
+        return "_10_requestparamrequired";
+    }
+
 }

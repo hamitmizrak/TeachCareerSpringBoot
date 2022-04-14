@@ -4,6 +4,7 @@ import com.hamitmizrak.dto.ProductDto;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.ArrayList;
@@ -14,12 +15,19 @@ public class ControllerTutorials {
 
     //Root
     //http://localhost:8080/
-    @GetMapping("/")
+    @GetMapping("/root")
     @ResponseBody
-    public String getRoot() {
+    public String getRootBody() {
         return "Root Bileşeni";
     }
 
+
+    //Root
+    //http://localhost:8080/
+    @GetMapping("/")
+    public String getRoot() {
+        return "index";
+    }
 
     //th:text
     // http://localhost:8080/templates/thymeleaf1
@@ -72,6 +80,15 @@ public class ControllerTutorials {
         productDtoList.add(new ProductDto(4L,"Name4",5000,"marka4"));
         model.addAttribute("key_list",productDtoList);
         return "_05_object_list";
+    }
+
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////
+    //pathVariable
+    // http://localhost:8080/templates/thymeleaf6/44
+    @GetMapping("templates/thymeleaf6/{id}")
+    public String getPathVariable(Model model, @PathVariable(name="id") int id){
+        model.addAttribute("key","id: "+id);
+        return "_06_pathvariable";
     }
 
 

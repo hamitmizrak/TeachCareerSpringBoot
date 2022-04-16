@@ -21,21 +21,21 @@ import java.util.Date;
 public class _1_ComputerEntity implements Serializable {
     public static final long serialVersionUID = 1L;
 
-    @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @Id//PK
+    @GeneratedValue(strategy= GenerationType.IDENTITY)//AI
     @Column( name="id" , updatable = false)
     private Long computerId;
 
-    @Column( name="computer_name")
+    @Column( name="computer_name",unique = true)
     private String computerName;
 
     @Column( name="computer_trade")
     private String computerTrade;
 
-    @Column( name="computer_price")
+    @Column( name="computer_price",length=7,nullable = false)
     private double computerPrice;
 
-    @Column( name="created_date")
+    @Column( name="created_date",insertable = false)
     @Temporal( TemporalType.TIMESTAMP)
     @CreationTimestamp
     private Date createdDate;

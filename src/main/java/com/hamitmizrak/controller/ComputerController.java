@@ -2,6 +2,7 @@ package com.hamitmizrak.controller;
 
 import com.hamitmizrak.data._1_ComputerEntity;
 import com.hamitmizrak.repository._1_ComputerRepository;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,6 +14,7 @@ import javax.swing.*;
 import java.util.Optional;
 
 @Controller
+@Log4j2
 public class ComputerController {
 
     @Autowired
@@ -87,7 +89,7 @@ public class ComputerController {
 
     //Update
     //UPDATE computer SET  `computer_name` = 'Bilgisayar Adı33' WHERE (`id` = '3');
-    // http://localhost:8080/computer/update/3
+    // http://localhost:8080/computer/update/2
     @GetMapping("/computer/update/{id}")
     @ResponseBody
     public String updateComputer(@PathVariable(name = "id") Long idim) {
@@ -108,6 +110,19 @@ public class ComputerController {
         } else {
             return idim + " id'li Aradığınız Data veri tabanında yoktur ";
         }
+    }
+
+    //List
+    // http://localhost:8080/computer/list
+    //SELECT * FROM computer;
+    @GetMapping("/computer/list")
+    @ResponseBody
+    public String listComputer(){
+        Iterable<_1_ComputerEntity> listem=  computerRepository.findAll();
+        for(_1_ComputerEntity temp: listem){
+            log.info(temp);
+        }
+        return listem+"\n";
     }
 }
 

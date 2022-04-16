@@ -9,4 +9,9 @@ public class HomeWork {
     //validation Login/register
     //şifre:root
     //email:root@root
+
+    //Spring Data
+    //person göre yapalım
+    //personName personSurname personEmail(unique)
+    //Database Spring Data kaydedelim (CRUD Listeleme) Thymleaf gösteriyoruz (@ResponseBody kullanmalım)
 }

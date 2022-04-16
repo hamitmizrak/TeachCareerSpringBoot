@@ -26,7 +26,7 @@ public class _1_ComputerEntity implements Serializable {
     @Column( name="id" , updatable = false)
     private Long computerId;
 
-    @Column( name="computer_name",unique = true)
+    @Column( name="computer_name",unique = false)
     private String computerName;
 
     @Column( name="computer_trade")

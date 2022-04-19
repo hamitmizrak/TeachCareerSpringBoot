@@ -1,4 +1,4 @@
-package com.hamitmizrak.controller;
+package com.hamitmizrak.mvc;
 
 import com.hamitmizrak.data._1_ComputerEntity;
 import com.hamitmizrak.repository._1_ComputerRepository;
@@ -34,7 +34,7 @@ public class ComputerController {
                 .computerTrade("Marka")
                 .computerPrice(7000)
                 .build();
-        computerRepository.save(entity);
+        computerRepository.save(entity);//Kaydetmek
         return "Ekleme Başarılı";
     }
 
@@ -50,7 +50,7 @@ public class ComputerController {
                 .computerTrade("Marka")
                 .computerPrice(7000)
                 .build();
-        computerRepository.save(entity);
+        computerRepository.save(entity);//
         return "Ekleme Başarılı";
     }
 
@@ -61,7 +61,7 @@ public class ComputerController {
     @GetMapping("/computer/find/{id}")
     @ResponseBody
     public String findComputerById(@PathVariable(name = "id") Long idim) {
-        Optional<_1_ComputerEntity> optionalEntity = computerRepository.findById(idim);
+        Optional<_1_ComputerEntity> optionalEntity = computerRepository.findById(idim);//bulmak
 
         if (optionalEntity.isPresent()) {
             _1_ComputerEntity entity = optionalEntity.get();
@@ -80,7 +80,7 @@ public class ComputerController {
         Optional<_1_ComputerEntity> optionalEntity = computerRepository.findById(idim);
         if (optionalEntity.isPresent()) {
             _1_ComputerEntity entity = optionalEntity.get();
-            computerRepository.deleteById(idim);
+            computerRepository.deleteById(idim);//silmek
             return "Silme Başarılı " + entity;
         } else {
             return idim + " id'li Aradığınız Data veri tabanında yoktur ";

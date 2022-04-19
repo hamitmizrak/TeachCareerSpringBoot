@@ -13,6 +13,7 @@ public class TeachCareerSpringBootApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(TeachCareerSpringBootApplication.class, args);
+       // System.setProperty("java.awt.headless", "false");
     }
 
 }

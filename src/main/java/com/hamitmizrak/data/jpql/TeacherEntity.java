@@ -1,4 +1,4 @@
-package com.hamitmizrak.jpql;
+package com.hamitmizrak.data.jpql;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Data
 @NoArgsConstructor
@@ -15,7 +16,8 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "teacher")
-public class TeacherEntity {
+public class TeacherEntity implements Serializable {
+    public static final long serialVersionUID=1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

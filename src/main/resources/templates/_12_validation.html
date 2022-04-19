@@ -15,6 +15,10 @@
 <!-- start codes -->
 <p th:text="#{form}" class="display-4 text-center text-primary text-capitalize"></p>
 
+<!--th:action="@{/validation}"    ==> URL-->
+<!--th:object="${key_validation}" ==> MODEL-->
+
+
 <form  th:method="post" th:object="${key_validation}" th:action="@{/validation}">
     <div class="container">
         <div class="row">

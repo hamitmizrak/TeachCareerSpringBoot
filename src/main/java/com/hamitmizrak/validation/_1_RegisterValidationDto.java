@@ -19,7 +19,7 @@ import java.util.Locale;
 @Log4j2
 
 //validation anonation: @NotEmpty, @Size,@Min,Max,@Pattern,@Email
-public class RegisterValidationDto {
+public class _1_RegisterValidationDto {
 
     private int registerId;
 

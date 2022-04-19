@@ -28,7 +28,6 @@ public class TeacherController {
         }
         teacherEntityList.add(TeacherEntity.builder().teacherId(0L).teacherName("Adi11").teacherSurname("balicak").build());
         teacherEntityList.add(TeacherEntity.builder().teacherId(0L).teacherName("Adi12").teacherSurname("balicak").build());
-
         //liste olarak eklemek saveAll
         teacherRepository.saveAll(teacherEntityList);
         return "Liste eklendi" + teacherEntityList;

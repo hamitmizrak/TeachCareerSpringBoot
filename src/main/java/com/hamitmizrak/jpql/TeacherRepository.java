@@ -1,10 +1,12 @@
 package com.hamitmizrak.jpql;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+//@Repository ==> @service kısmı için yazalım
 @Repository
 public interface TeacherRepository extends JpaRepository<TeacherEntity,Long> {
 

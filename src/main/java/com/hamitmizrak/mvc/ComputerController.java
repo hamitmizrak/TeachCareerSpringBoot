@@ -1,7 +1,7 @@
 package com.hamitmizrak.mvc;
 
 import com.hamitmizrak.data._1_ComputerEntity;
-import com.hamitmizrak.repository._1_ComputerRepository;
+import com.hamitmizrak.data._2_ComputerRepository;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,7 +18,7 @@ import java.util.Optional;
 public class ComputerController {
 
     @Autowired
-    _1_ComputerRepository computerRepository;
+    _2_ComputerRepository computerRepository;
 
 
     //Save

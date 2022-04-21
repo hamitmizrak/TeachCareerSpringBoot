@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.List;
+
 @Controller
 @Log4j2
 public class LaptopController {
@@ -30,8 +32,7 @@ public class LaptopController {
                         .laptopName("Adı ")
                         .laptopPrice(1000)
                     .build();
-            laptopRepository.save(laptopEntity);
-
+           laptopRepository.save(laptopEntity);
         return "Laptop Eklendi";
     }
 
@@ -46,4 +47,10 @@ public class LaptopController {
         }
         return iterableList+" ";
     }
+
+    //Ödev
+//    List<LaptopEntity> findLaptopEntityByLaptopNameStartsWith(String laptopName);
+//    List<LaptopEntity> findLaptopEntityByLaptopNameEndssWith(String laptopName);
+//    List<LaptopEntity> findLaptopEntityByLaptopNameEquals(String laptopName);
+//    List<LaptopEntity> findLaptopEntityByLaptopNameLike(String laptopName);
 }

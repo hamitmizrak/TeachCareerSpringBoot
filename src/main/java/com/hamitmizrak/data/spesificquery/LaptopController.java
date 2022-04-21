@@ -14,39 +14,39 @@ import java.util.List;
 @Log4j2
 public class LaptopController {
 
-    @Autowired
-    private LaptopImpl laptopImpl;
-
-    @Autowired
-    private LaptopRepository laptopRepository;
+//    @Autowired
+//    private LaptopImpl laptopImpl;
+//
+//    @Autowired
+//    private LaptopRepository laptopRepository;
 
     //save
     //http://localhost:8080/laptop/save
-    @GetMapping("laptop/save")
-    @ResponseBody
-    public String getLaptopSave(){
-        LaptopEntity laptopEntity=null;
-            laptopEntity=LaptopEntity
-                    .builder()
-                        .laptopId(0L)
-                        .laptopName("Adı ")
-                        .laptopPrice(1000)
-                    .build();
-           laptopRepository.save(laptopEntity);
-        return "Laptop Eklendi";
-    }
+//    @GetMapping("laptop/save")
+//    @ResponseBody
+//    public String getLaptopSave(){
+//        LaptopEntity laptopEntity=null;
+//            laptopEntity=LaptopEntity
+//                    .builder()
+//                        .laptopId(0L)
+//                        .laptopName("Adı ")
+//                        .laptopPrice(1000)
+//                    .build();
+//           laptopRepository.save(laptopEntity);
+//        return "Laptop Eklendi";
+//    }
 
     //minPrice
     //http://localhost:8080/laptop/findMinPrice/3000
-    @GetMapping("laptop/findMinPrice/{price}")
-    @ResponseBody
-    public String getLaptopFindMinPrice(@PathVariable(name="price") double price){
-        Iterable<LaptopEntity> iterableList= laptopImpl.findLaptopEntitiesBylaptopPrice(price);
-        for(LaptopEntity temp :iterableList){
-            log.info(temp);
-        }
-        return iterableList+" ";
-    }
+//    @GetMapping("laptop/findMinPrice/{price}")
+//    @ResponseBody
+//    public String getLaptopFindMinPrice(@PathVariable(name="price") double price){
+//        Iterable<LaptopEntity> iterableList= laptopImpl.findLaptopEntitiesBylaptopPrice(price);
+//        for(LaptopEntity temp :iterableList){
+//            log.info(temp);
+//        }
+//        return iterableList+" ";
+//    }
 
     //Ödev
 //    List<LaptopEntity> findLaptopEntityByLaptopNameStartsWith(String laptopName);

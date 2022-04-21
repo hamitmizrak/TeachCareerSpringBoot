@@ -5,13 +5,15 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-@Repository
-public interface LaptopRepository extends JpaRepository<LaptopEntity,Long> {
+//@Repository
+//public interface LaptopRepository extends JpaRepository<LaptopEntity,Long> {
 
-    List<LaptopEntity> findLaptopEntityByLaptopNameStartsWith(String laptopName);
-    List<LaptopEntity> findLaptopEntityByLaptopNameEndssWith(String laptopName);
-    List<LaptopEntity> findLaptopEntityByLaptopNameEquals(String laptopName);
-    List<LaptopEntity> findLaptopEntityByLaptopNameLike(String laptopName);
+public interface LaptopRepository{
+
+//    List<LaptopEntity> findLaptopEntityByLaptopNameStartsWith(String laptopName);
+//    List<LaptopEntity> findLaptopEntityByLaptopNameEndssWith(String laptopName);
+//    List<LaptopEntity> findLaptopEntityByLaptopNameEquals(String laptopName);
+//    List<LaptopEntity> findLaptopEntityByLaptopNameLike(String laptopName);
 
 
 

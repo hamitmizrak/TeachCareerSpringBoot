@@ -33,6 +33,4 @@ public class LaptopEntity implements Serializable {
     @CreationTimestamp
     @Temporal(TemporalType.TIMESTAMP)
     private java.util.Date creationDate;
-
-
 }

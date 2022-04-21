@@ -14,10 +14,10 @@ public class LaptopImpl implements  ILaptop{
     private EntityManager entityManager;
 
     @Override
-    public List<LaptopEntity> findMin(double price) {
+    public List<LaptopEntity> findLaptopEntitiesBylaptopPrice(double price) {
         //sql != jpql
         //select * from teacher where price>=500
-        String jpql="select lap LaptopEntity lap where lap.laptopPrice>=:key";
+        String jpql="select lap from LaptopEntity lap where lap.laptopPrice>=:key";
         TypedQuery<LaptopEntity> typedQuery= entityManager.createQuery(jpql,LaptopEntity.class);
         typedQuery.setParameter("key",price);
         return typedQuery.getResultList();

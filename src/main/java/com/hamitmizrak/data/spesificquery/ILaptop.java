@@ -3,6 +3,6 @@ package com.hamitmizrak.data.spesificquery;
 import java.util.List;
 
 public interface ILaptop {
-
-    public List<LaptopEntity> findMin(double price);
+//findTeacherEntitiesByTeacherSurname
+    public List<LaptopEntity> findLaptopEntitiesBylaptopPrice(double price);
 }

@@ -1,4 +1,4 @@
-package com.hamitmizrak.data.pagingandsorting;
+package com.hamitmizrak.mvc.pagingandsorting;
 
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.stereotype.Repository;

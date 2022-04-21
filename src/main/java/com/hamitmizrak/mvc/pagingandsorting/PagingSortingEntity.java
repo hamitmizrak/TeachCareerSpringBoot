@@ -1,4 +1,4 @@
-package com.hamitmizrak.data.pagingandsorting;
+package com.hamitmizrak.mvc.pagingandsorting;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

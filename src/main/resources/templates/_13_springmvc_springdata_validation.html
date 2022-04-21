@@ -1,0 +1,58 @@
+<!doctype html>
+<html th:lang="${#locale.language}" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS v5.0.2 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
+    <!--    <link rel="stylesheet"   th:href="@{/css/index.css}">-->
+    <!--    <script th:src="@{/js/index.js}"></script>-->
+</head>
+
+<body class="container bg-dark text-danger">
+<!-- start codes -->
+<p th:text="#{form}" class="display-4 text-center text-primary text-capitalize"></p>
+
+<!--th:action="@{/validation}"    ==> URL-->
+<!--th:object="${key_validation}" ==> MODEL-->
+
+
+<form  th:method="post" th:object="${key_mvc_data}" th:action="@{/mvc/data}">
+    <div class="container">
+        <div class="row">
+
+            <div th:text="#{loginId}" class="col-md-2"></div>
+            <div class="col-md-10">
+                <input class="form-control" type="text" id="loginId" disabled="disabled" th:field="*{loginId}"/> <br/>
+            </div>
+
+            <div th:text="#{userEmail}" class="col-md-2"></div>
+            <div class="col-md-10">
+                <input class="form-control" type="text" id="loginEmail"  th:field="*{loginEmail}"/> <br/>
+                <div th:if="${#fields.hasErrors('loginEmail')}" th:errors="*{loginEmail}" />
+            </div>
+
+            <div th:text="#{userPassword}" class="col-md-2"></div>
+            <div class="col-md-10">
+                <input class="form-control" type="text" id="loginPassword"  th:field="*{loginPassword}"/> <br/>
+                <div th:if="${#fields.hasErrors('loginPassword')}" th:errors="*{loginPassword}" />
+            </div>
+
+            <div  class="col-md-2"></div>
+            <div class="col-md-10">
+                <button type="reset" class="btn btn-danger">Temizle</button>
+                <button type="submit" class="btn btn-primary">Gönder</button>
+            </div>
+
+        </div>
+    </div>
+</form>
+
+
+<!-- ends codes -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
+</body>
+</html>

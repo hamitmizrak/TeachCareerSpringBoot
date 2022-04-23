@@ -7,7 +7,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.awt.*;
+import java.util.ArrayList;
+import java.util.List;
+
+//server:üreten
+//client:tüketen
 
 @Log4j2
 @RestController
@@ -93,5 +97,41 @@ public class ComputerRest {
         }
         return computerDto;
     }
+
+
+    //http://localhost:8080/rest7
+    @GetMapping(value = "rest7")
+    public List<ComputerDto>  rest7() {
+        List<ComputerDto> listem=new ArrayList<>();
+        listem.add(ComputerDto.builder().computerId(1L).computerName("Bilgisayar adı1").computerPrice(100).build());
+        listem.add(ComputerDto.builder().computerId(2L).computerName("Bilgisayar adı2").computerPrice(200).build());
+        listem.add(ComputerDto.builder().computerId(3L).computerName("Bilgisayar adı3").computerPrice(300).build());
+        listem.add(ComputerDto.builder().computerId(4L).computerName("Bilgisayar adı4").computerPrice(400).build());
+        return listem;
+    }
+
+    //Json
+/*    [
+    {
+        "computerId": 1,
+            "computerName": "Bilgisayar adı1",
+            "computerPrice": 100.0
+    },
+    {
+        "computerId": 2,
+            "computerName": "Bilgisayar adı2",
+            "computerPrice": 200.0
+    },
+    {
+        "computerId": 3,
+            "computerName": "Bilgisayar adı3",
+            "computerPrice": 300.0
+    },
+    {
+        "computerId": 4,
+            "computerName": "Bilgisayar adı4",
+            "computerPrice": 400.0
+    }
+]*/
 
 }

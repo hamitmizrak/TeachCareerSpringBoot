@@ -1,4 +1,4 @@
-package com.hamitmizrak.rest;
+package com.hamitmizrak.util;
 
 public class RestInformation {
     //Rest: default json

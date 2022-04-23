@@ -14,9 +14,8 @@ import java.util.List;
 //client:tüketen
 
 @Log4j2
-@RestController
-public class ComputerRest {
-
+@RestController //server
+public class ComputerServer {
 
     //http://localhost:8080/rest1
     @GetMapping("rest1")

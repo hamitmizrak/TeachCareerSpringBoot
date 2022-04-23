@@ -3,6 +3,7 @@ package com.hamitmizrak.rest;
 import com.hamitmizrak.dto.ComputerDto;
 import com.hamitmizrak.dto.ProductDto;
 import lombok.extern.log4j.Log4j2;
+import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
@@ -10,6 +11,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.client.RestTemplate;
+
+import java.util.List;
 
 //client:tüketir
 //server:üretir
@@ -42,8 +45,8 @@ public class ComputerClient {
     }
 
 
-
-    //ResponseEntity
+///////////////////////////////
+    //ResponseEntity Object
     //http://localhost:8080/client3
     @GetMapping("client3")
     @ResponseBody
@@ -55,5 +58,24 @@ public class ComputerClient {
         return computerBody;
     }
 
+
+    //ResponseEntity List => Object
+    //http://localhost:8080/client7
+    @GetMapping("client7")
+    @ResponseBody
+    public List<ComputerDto>  client7() {
+        String URL="http://localhost:8080/rest7";
+        RestTemplate restTemplate=new RestTemplate();
+
+        ResponseEntity<List<ComputerDto>> responseEntity=
+                restTemplate.exchange(URL, HttpMethod.GET, HttpEntity.EMPTY, new ParameterizedTypeReference<List<ComputerDto>>() {
+        });
+
+        List<ComputerDto> listBody=responseEntity.getBody();
+        for(ComputerDto temp:listBody){
+            log.info(temp);
+        }
+        return listBody;
+    }
 
 }

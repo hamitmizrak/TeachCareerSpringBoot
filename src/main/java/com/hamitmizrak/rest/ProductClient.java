@@ -19,7 +19,7 @@ import org.springframework.web.client.RestTemplate;
 //tuketn:server
 
 
-@Controller
+@RestController
 public class ProductClient {
     //client: tüketti
     @GetMapping
@@ -113,21 +113,60 @@ public class ProductClient {
 
 
     /////////////////////////////////////////////////////////////////////////////////////
-//Client Header ile Servera veri göndersin
-
+    //client Server'a HttpHeader ile veri gönderdi
     //http://localhost:8080/client/header
     @GetMapping("/client/header")
     @ResponseBody
     public String getClientHeader() {
-        String URL = "http://localhost:8080/server/header";
+        String URL = "http://localhost:8080/server/client/header";
         RestTemplate restTemplate=new RestTemplate();
         HttpHeaders httpHeaders=new HttpHeaders();
-        httpHeaders.add("key_header","Merhabalar ben gizli bilgiyim");
-
+        httpHeaders.add("client_key","Merhabalar ben gizli bilgiyim");
         HttpEntity<String> httpEntity=new HttpEntity<>("veri",httpHeaders);
         ResponseEntity<String> responseEntity=restTemplate.exchange(URL,HttpMethod.GET,httpEntity,String.class);
         String body=responseEntity.getBody();
         return body;
+    }
+
+
+    //Server client'a HttpHeader ile veri gönderdi
+    //http://localhost:8080/client/header2
+    @GetMapping("/client/header2")
+    @ResponseBody
+    public String getClientHeader2() {
+        String URL = "http://localhost:8080/server/response/header";
+        RestTemplate restTemplate=new RestTemplate();
+        ResponseEntity<String> responseEntity=restTemplate.exchange(URL,HttpMethod.GET,HttpEntity.EMPTY,String.class);
+        String gelenData=responseEntity.getHeaders().getFirst("server_key");
+        String body=responseEntity.getBody();
+        return "@Controller"+body+" "+gelenData;
+    }
+
+    /////////////////////////////////////////////////////////////////////////////////////
+//Browserda saklanır: browser cache belleğini silerseniz silinir.
+
+    //client Server'a Cookie gönderdi
+    // http://localhost:8080/rest/response/cookie
+    @GetMapping("/rest/response/cookie")
+    @ResponseBody
+    public ResponseEntity<?> getCookie() {
+        return ResponseEntity
+                .ok()
+                .header(HttpHeaders.SET_COOKIE,"key_response_cookie")
+                .body("@RestController ==> ");
+    }
+
+
+    // http://localhost:8080/controller/response/cookie/header2
+    @GetMapping("/controller/response/cookie/header2")
+    @ResponseBody
+    public String getCookieController2() {
+        String URL = "http://localhost:8080/rest/response/cookie2";
+        RestTemplate restTemplate = new RestTemplate();
+        ResponseEntity<String> response = restTemplate.exchange(URL, HttpMethod.GET, HttpEntity.EMPTY, String.class);
+        String data=response.getHeaders().getFirst(HttpHeaders.SET_COOKIE);
+        String body = response.getBody();
+        return "@Controller ==> " + body+" "+data;
     }
 
 }

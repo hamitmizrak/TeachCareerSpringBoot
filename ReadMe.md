@@ -1,6 +1,5 @@
-# TeachCareer.NET Spring Boot 
+![](https://komarev.com/ghpvc/?username=hamitmizrak)
 
-* [GitHub](https://github.com/hamitmizrak/TechCareerSpringBoot1)
 
 ### Gereksinimler
 Java 17

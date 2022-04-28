@@ -1,0 +1,5 @@
+Name:      user
+Password:  5b7881b2-bf51-497c-9195-dc21f329e0a1
+
+http://localhost:8080
+http://localhost:8080/login

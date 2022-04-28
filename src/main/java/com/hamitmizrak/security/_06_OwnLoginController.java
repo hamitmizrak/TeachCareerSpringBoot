@@ -44,6 +44,7 @@ public class _06_OwnLoginController {
         return "register";
     }
 
+    //http://localhost:8080/logout
     @GetMapping("/logout")
     @ResponseBody
     public String getLogout(HttpServletRequest request, HttpServletResponse response, Model model) {

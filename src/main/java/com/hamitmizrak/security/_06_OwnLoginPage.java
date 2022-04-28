@@ -1,14 +1,11 @@
 package com.hamitmizrak.security;
-
 import com.hamitmizrak.beans.PasswordBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-
 //CSRF:Cross Site Request Forgency (Web siteler arasında istek Sahteciliği)
-
 @EnableWebSecurity
 public class _06_OwnLoginPage extends WebSecurityConfigurerAdapter {
     @Autowired
@@ -26,8 +23,6 @@ public class _06_OwnLoginPage extends WebSecurityConfigurerAdapter {
                 .and()
                 .formLogin()
                 .loginPage("/register");
-
-
     }
 
     @Autowired
@@ -38,14 +33,4 @@ public class _06_OwnLoginPage extends WebSecurityConfigurerAdapter {
                 .password(passwordBean.passwordEncoder().encode("root"))
                 .roles("USER");
     }
-
-
-
-
-
-
-
-
-
-
 }

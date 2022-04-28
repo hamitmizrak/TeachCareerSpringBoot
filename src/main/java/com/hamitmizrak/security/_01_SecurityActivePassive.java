@@ -5,18 +5,18 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
 
-
-@EnableWebSecurity
-public class _01_SecurityActivePassive extends WebSecurityConfigurerAdapter {
-
-    @Override
-    protected void configure(HttpSecurity http) throws Exception {
-        //super.configure(http);
-        http
-                .authorizeRequests()
-                .anyRequest()
-                .authenticated()
-                .and()
-                .httpBasic();
-    }
+public class _01_SecurityActivePassive{
+//@EnableWebSecurity
+//public class _01_SecurityActivePassive extends WebSecurityConfigurerAdapter {
+//
+//    @Override
+//    protected void configure(HttpSecurity http) throws Exception {
+//        //super.configure(http);
+//        http
+//                .authorizeRequests()
+//                .anyRequest()
+//                .authenticated()
+//                .and()
+//                .httpBasic();
+//    }
 }

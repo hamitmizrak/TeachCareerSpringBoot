@@ -49,14 +49,15 @@ public class _06_OwnLoginController {
     @ResponseBody
     public String getLogout(HttpServletRequest request, HttpServletResponse response, Model model) {
         //Sayfaya giriş yapmış user
-        Authentication authentication= SecurityContextHolder.getContext().getAuthentication();
-        if(authentication!=null){
-            new SecurityContextLogoutHandler().logout(request,response,authentication);
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if (authentication != null) {
+            new SecurityContextLogoutHandler().logout(request, response, authentication);
             model.addAttribute("key_logout", "Çıkış başarılı");
-        }else {   model.addAttribute("key_logout", "Çıkış başarısız !!!!");       }
+        } else {
+            model.addAttribute("key_logout", "Çıkış başarısız !!!!");
+        }
         return "Çıkış Yapıldı";
     }
-
 
 
 }
